@@ -1,0 +1,179 @@
+
+body
+{
+    background: linear-gradient(to right, #E5E5E5, #e2e2e2);
+}
+textarea
+{
+    resize: none;
+}
+header
+{
+    background: #4e54c8;
+    border-bottom: 3px;
+    border-style:solid;
+    border-color: #4e54c8;
+}
+
+.logo
+{
+    margin: 40px 0px 0px 90px;
+    
+}
+
+.p-alura
+{
+    display: block;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 150%;
+    
+    color: #E5E5E5;
+}
+.p-alura::first-letter {
+    
+    font-weight:bolder;
+    font-size:64px;
+}
+/*en globa  texto*/
+.texts-area
+{
+    display: flex;
+    margin: 10px 2%;
+}
+/**/
+.section-screen
+{
+    flex: 2;
+    background-color: white;
+    border-radius: 20px;
+    box-sizing:border-box;
+    width: 80%;
+    margin: auto;
+}
+
+/*pantallas de texto*/
+.text-screen
+{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 150%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    height: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+}
+.input-screen
+{
+    background:none;
+}
+/*guarda la screen entre otros elementos*/
+.output-screen
+{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+
+    flex: 1;
+    
+}
+.div-button
+{
+    display: flex;
+    box-sizing: border-box;
+    height: 75px;
+    
+}
+/*botones estilo*/
+.button
+{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 19px;
+    text-align: center;
+
+    height: 60px;
+    border-radius: 20px;
+    border-color: #4e54c8;
+    /*padding: 0px 100px;*/
+    width: 42%;
+}
+.btn-encrypt
+{
+    margin: 10px 0px;
+}
+/**/
+#area-output
+{
+    border-style: none;
+}
+
+/*boton encriptador*/
+#encrypt
+{
+    color: #D8DFE8;
+    background-color: #4e54c8;
+    margin-left: 5%;
+}
+/*boton desencriptador*/
+#decrypt
+{
+    color: #4e54c8;
+    background-color: #D8DFE8;
+    margin-left: 5%;
+}
+/*boton copiar*/
+#copy
+{
+    width: 85%;
+    margin-left: 7.5%;
+    color: #4e54c8;
+}
+@media(max-width: 820px) {
+    .texts-area{
+      flex-direction: column;
+    }
+    #area-encrypt
+    {
+        width: 100%;
+        
+    }
+    .text-screen
+    {
+        height: 650px;
+        box-sizing: border-box;
+    }
+}
+@media(max-width: 414px)
+{
+
+  .div-button
+  {
+    flex-direction: column;
+    height: 160px;
+  }
+  .button
+  {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #encrypt,#decrypt
+  {
+    margin: auto;
+  }
+
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
+    <title>encriptar</title>
+</head>
+<body>
+    <header>
+        <p class="p-alura">alura challenge</p>
+    </header>
+    <main>
+        <div class="texts-area">
+            <section class="section-screen input-screen">
+                <textarea class="text-screen" id="area-encrypt" autofocus></textarea>
+                <div class="div-button">
+                    <button class="button btn-encrypt" id = "encrypt">encriptar</button>
+                    <button class="button btn-encrypt" id = "decrypt">desencriptar</button>
+                </div>
+            </section>
+            <section class="section-screen output-screen">
+                <textarea class="text-screen" id="area-output" disabled readonly></textarea>
+                <button class="button btn-encrypt" id = "copy">copiar</button>
+            </section>
+        </div>
+        
+        
+    </main>
+    <script>
+        var area = document.getElementById('area-encrypt');
+        var showText = document.getElementById('area-output');
+        var buttonEncrypt = document.getElementById('encrypt');
+        var buttonDecrypt = document.getElementById('decrypt');
+        var buttonCopy = document.getElementById('copy');
+        var letters = 
+        {
+            'a': 'ai',
+            'e':'enter',
+            'i':'imes',
+            'o':'ober',
+            'u':'ufat'
+        }
+        //funciones
+        function convertToCharArray()
+        {
+            return [...area.value];
+        }
+        function processEncrypt(array)
+        {
+            let result = '';
+            array.forEach(element => 
+            {
+                
+                if(element in letters)
+                {
+                    result += letters[element];
+                    return;
+                }
+                result += element
+            })
+            
+            
+            return result;
+        }
+        function processDecrypt(array)
+        {
+            let result = '';
+            for(let i = 0; i< array.length;i++)
+            {
+                let val = array[i];
+                result += val;
+                if(val in letters)
+                {
+                    i += letters[val].length-1;
+                }
+            }
+            return result;
+        }
+        function encrypt(encrypt = true)
+        {
+            let text = convertToCharArray();
+            let result;
+            if(encrypt)
+            {
+                result = processEncrypt(text);
+            }
+            else
+            {
+                result = processDecrypt(text);
+            }
+            showText.value = result;
+        }
+        function encriptButton()
+        {
+            encrypt(true);
+        }
+        function decryptButton()
+        {
+            encrypt(false)
+        }
+        function copy()
+        {
+            navigator.clipboard.writeText(showText.value);
+        }
+        //acciones
+        buttonEncrypt.onclick = encriptButton;
+        buttonDecrypt.onclick = decryptButton;
+        buttonCopy.onclick = copy;
+    </script>
+</body>
+</html>
